@@ -1,4 +1,4 @@
-# The Node.js relayr Library
+# The relayr Node.js Library
 
 Welcome to the relayr Node.js Library. The library allows you to access your WunderBar sensor data and the [relayr Cloud Platform](https://developer.relayr.io/documents/Welcome/Platform) functionality from apps built in Node.js.
 
@@ -20,72 +20,7 @@ In order to include the module in your project simply add
 
 ## Using the Library  
 
-### Retrieving App and Device Credentials 
-
-Log in to your relayr account on the [Developer Dashboard](https://developer.relayr.io)
-
-Access the [API Keys page](https://developer.relayr.io/dashboard/apps/myApps) in order to retrieve your `appId` and `appToken` 
-
-	var app_id = "YOURAPPID";
-	var token  = "YOURSENSORTOKEN";
-
-Access the [Devices page](https://developer.relayr.io/dashboard/devices) in order to retrieve your `deviceId`
-
-	var dev_id = "YOURDEVICEID";
-
-### Initializing the Library
-
-
-	var relayr = new Relayr(app_id);
-
-
-### Connecting  Using the Credentials:
-
-	relayr.connect(token, dev_id);
-
-
-### Subscribing to a Data Channel
-
-	relayr.on('data', function (topic, msg) {
-	        console.log(topic + ":" + msg);
-	}
-
-
-### Sending a Command
-
-	relayr.command(token, dev_id, 
-	    {
-	        path:"led", 
-	        command:"led", 
-	        value:true
-	    }, 
-	    function (err,code) {
-	        console.log(err||code)
-	    });
-
-
-### Retrieving Information
-
-User Information
-
-	relayr.user(token, function (err, user) {
-	    console.log(err || user);
-	}
-
-
-User's Devices Information
-
-	relayr.devices(user_id, token, function (err, devices) {
-	    console.log(err || devices);
-	}
-
-
-Individual Device Information
-
-	relayr.deviceModel(token, dev_id, function (err, model) {
-	    console.log(err || model);
-	}
-
+For a documentation on how to use the library please see our [Node.js section](https://developer.relayr.io/documents/Nodejs/Reference) on the Developer Dashboard
 
 ## Examples
 
